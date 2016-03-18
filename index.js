@@ -3,10 +3,17 @@
  */
 var main = document.querySelector("#main");
 var oLis = document.querySelectorAll("#list>li");
-var winW = document.documentElement.clientWidth;/*设备的宽度*/
-var winH = document.documentElement.clientHeight;/*设备的高度*/
-var desW = 640;/*设计稿宽*/
-var desH = 1008;/*设计稿高/
+var winW = document.documentElement.clientWidth;
+/*设备的宽度*/
+var winH = document.documentElement.clientHeight;
+/*设备的高度*/
+var audio_btn = document.querySelector("#audio_btn");
+var bell = document.querySelector('#bell');
+var desW = 640;
+/*设计稿宽*/
+var desH = 1008;
+/*设计稿高/
+
  /*设备的宽／设备的高< 设计稿宽／设计稿高 按照高来缩放 ->把设计稿的高缩小到设备的高*/
 if (winW / winH <= desW / desH) {
     main.style.webkitTransform = "scale(" + winH / desH + ")";    //main虽然缩放了，但是宽高不变还是640 960
@@ -20,6 +27,18 @@ if (winW / winH <= desW / desH) {
     oLi.addEventListener("touchmove", move, false);
     oLi.addEventListener("touchend", end, false);
 })
+
+
+audio_btn.addEventListener("click", function () {
+    if (audio_btn.getAttribute("class") === "rotate") {
+        this.className = "off";
+        bell.pause();
+    } else {
+
+        this.className = "rotate";
+        bell.play();
+    }
+});
 
 function start(e) {
     this.touchStart = e.changedTouches[0].pageY;
@@ -54,6 +73,7 @@ function move(e) {
     oLis[this.prevsIndex].style.display = "block";
     oLis[this.prevsIndex].className = "zIndex";//层级在最上面
 }
+
 function end(e) {
     if (this.flag) {
         oLis[this.prevsIndex].style.webkitTransform = "translate(0,0)";
