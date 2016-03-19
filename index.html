@@ -70,13 +70,10 @@
             text-align: center;
         }
 
-        .logo-box {
-
-        }
 
         .img-box {
             position: absolute;
-            bottom: 0;
+            bottom: 10%;
             width: 260px;
             /* margin: 0 auto; */
             left: 50%;
@@ -132,30 +129,33 @@
         }
 
         .a2 .introduce {
-            width: 0px;
-            height: 0px;
+            width: 400px;
+            height: 90px;
             position: absolute;
             text-align: center;
             line-height: 90px;
             font-size: 20px;
-            -webkit-transform: translate(0, 600px);
-            transform: translate(0, 600px);
-
-        }
-
-        #a2 .introduce {
-            width: 400px;
-            height: 90px;
             left: 50%;
             top: 50%;
             margin-left: -200px;
             margin-top: -45px;
+
+
+        }
+        .a2 p{
+            opacity: 0;
+            -webkit-transform: translate(0, 600px);
+            transform: translate(0, 600px);
+        }
+
+        #a2 p {
+            opacity: 1;
             -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
             -webkit-transition: 1s;
             transition: 1s;
         }
-
+        
         .a3 p {
             position: absolute;
             width: 0;
